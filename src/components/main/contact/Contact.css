@@ -21,16 +21,18 @@
 
 /* UPDATED */
 .contact-copy h2 {
-  font-size: 50px; /* was 3.6rem (57.6px) */
+  font-size: 50px;
   font-weight: 800;
   letter-spacing: -0.04em;
   margin-bottom: 32px;
   color: #a020f0;
+  line-height: 1.1;              /* ✅ FIXED */
+  word-break: break-word;        /* ✅ FIXED */
 }
 
 /* UPDATED */
 .contact-copy p {
-  font-size: 18px; /* was 1.05rem (16.8px) */
+  font-size: 18px;
   color:white;
   max-width:420px;
   margin-bottom: 60px;
@@ -131,45 +133,49 @@
   fill:green;
 }
 
+/* ================= MOBILE FIX ================= */
+
+/* SMALL DEVICES */
 @media (max-width: 600px) {
   .contact-wrapper {
     padding:0 20px;
   }
 
   .contact-copy h2 {
-    font-size:40px;
+    font-size:36px;
+    line-height: 1.2;
   }
 
   .contact-copy p {
-    font-size:16px;
+    font-size:15px;
+    line-height: 1.6;
   }
 
   .contact-split {
-    padding-top: 0;
+    padding-top: 40px;
   }
 
-  .contact-form {
-    margin-top:-120px;
-  }
-
-  .contact-form button {
-    margin-top: 0px;
-  }
+  /* ❌ REMOVED BAD NEGATIVE MARGIN */
 }
 
+/* TABLETS + MOBILE */
 @media (max-width: 768px) {
   .contact-wrapper {
     grid-template-columns: 1fr;
-    gap:40px;
+    gap:30px; /* slightly reduced for better spacing */
   }
 
   .contact-copy p {
     margin-bottom: 24px;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .contact-copy h2 {
-    font-size: 42px !important;
+    font-size: 36px !important;
+  }
+
+  .contact-form {
+    gap: 32px; /* improved spacing */
   }
 
   .contact-form button {
@@ -177,6 +183,7 @@
   }
 }
 
+/* MEDIUM SCREENS */
 @media (max-width: 1024px) {
   .contact-copy h2 {
     font-size: 50px;
