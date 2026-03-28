@@ -38,7 +38,7 @@ export default function Banner() {
         ease: "none",
         text: {
           value:
-            "Frontend developer focused on building clean, scalable, and user-friendly web interfaces with modern technologies.",
+            "Web developer focused on building clean, scalable, and user-friendly web interfaces with modern technologies.",
           delimiter: "",
         },
       })
