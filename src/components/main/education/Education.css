@@ -1,0 +1,224 @@
+.eduC-section {
+  width: 100%;
+  padding: 50px 0;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.eduC-wrapper {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.eduC-title {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 70px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* EDUCATION CARD */
+.eduC-entry {
+  width: 100%;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  backdrop-filter: blur(8px);
+  padding: 35px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Glow blob */
+.eduC-entry::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, #a020f0 0%, transparent 100%);
+  opacity: 0.18;
+  filter: blur(15px);
+  transition: 0.4s ease;
+}
+
+.eduC-entry:hover::before {
+  opacity: 0.35;
+  filter: blur(25px);
+}
+
+.eduC-entry:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 22px #a020f0;
+}
+
+/* UPDATED */
+.eduC-year {
+  font-size: 26px; /* was 30px */
+  font-weight: 700;
+  color: #a020f0;
+  margin-bottom: 10px;
+}
+
+.eduC-info h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* UPDATED */
+.course {
+  font-size: 18px; /* was 16px */
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+/* UPDATED */
+.school {
+  font-size: 18px; /* was 16px */
+  opacity: 0.75;
+}
+
+/* Divider */
+.eduC-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffffff40,
+    transparent
+  );
+  margin-bottom: 40px;
+}
+
+/* Performance hint */
+.eduC-section * {
+  will-change: transform, opacity;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .eduC-section {
+    padding: 40px 16px;
+  }
+
+  .eduC-title {
+    font-size: 34px;
+    margin-bottom: 50px;
+  }
+
+  .eduC-entry {
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .eduC-year {
+    font-size: 24px;
+  }
+
+  .eduC-info h3 {
+    font-size: 20px;
+  }
+
+  .course,
+  .school {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eduC-section {
+    padding: 40px 20px;
+  }
+
+  .eduC-title {
+    font-size: 42px;
+    margin-bottom: 55px;
+  }
+
+  .eduC-entry {
+    padding: 28px;
+    margin-bottom: 28px;
+  }
+
+  .eduC-year {
+    font-size: 26px;
+  }
+
+  .eduC-info h3 {
+    font-size: 22px;
+  }
+
+  .course,
+  .school {
+    font-size: 16px;
+  }
+
+  .eduC-entry {
+    max-width: 100%;
+    width: 700px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .eduC-section {
+    padding: 40px 16px;
+  }
+
+  .eduC-entry {
+    max-width: 100%;
+    width: 950px;
+  }
+
+  .eduC-info p {
+    font-size: 18px;
+  }
+}
+
+/* LARGE */
+@media (min-width: 1600px) {
+  .eduC-wrapper {
+    max-width: 1400px;
+  }
+
+  .eduC-title {
+    font-size: 56px;
+  }
+
+  .eduC-entry {
+    padding: 42px;
+  }
+
+  .eduC-year {
+    font-size: 34px;
+  }
+
+  .eduC-info h3 {
+    font-size: 28px;
+  }
+
+  .course,
+  .school {
+    font-size: 18px;
+  }
+}
