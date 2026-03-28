@@ -61,7 +61,7 @@ export default function Banner() {
 
         {/* ROLE */}
         <span className="banner-role" ref={roleRef}>
-          Frontend Engineer | Web Designer | Content Writer
+          Web Developer | Web Designer | Content Writer
         </span>
 
         {/* DESCRIPTION */}
