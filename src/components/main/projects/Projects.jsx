@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Projects.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,6 +31,7 @@ const projects = [
 export default function Projects() {
   const [active, setActive] = useState(null);
   const rowsRef = useRef([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     rowsRef.current.forEach((row, i) => {
@@ -89,6 +91,15 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="type-view-all-wrapper">
+          <button
+            className="type-view-all-btn"
+            onClick={() => navigate("/projects")}
+          >
+            <span>View All</span>
+          </button>
         </div>
       </div>
     </section>

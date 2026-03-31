@@ -2,7 +2,8 @@
   background: black;
   color: white;
   padding: 50px 0;
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .type-container {
@@ -15,7 +16,6 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   font-size: 50px;
   font-weight: 800;
   margin-bottom: 30px;
-  
   text-align: center;
 }
 
@@ -46,12 +46,10 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   transition: transform 0.4s ease, color 0.3s ease;
 }
 
-/* ✅ ACTIVE TITLE COLOR */
 .type-row.active h3 {
   color: #a020f0;
 }
 
-/* CLICK REVEAL */
 .type-reveal {
   max-height: 0;
   overflow: hidden;
@@ -107,6 +105,52 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   width: 100%;
 }
 
+/* VIEW ALL BUTTON */
+.type-view-all-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.type-view-all-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 14px 48px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.type-view-all-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #a020f0, #6600cc);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  z-index: 0;
+}
+
+.type-view-all-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.type-view-all-btn:hover {
+  border-color: #a020f0;
+}
+
+.type-view-all-btn span {
+  position: relative;
+  z-index: 1;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .type-title {
@@ -118,7 +162,6 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   }
 }
 
-
 @media (max-width: 600px) {
   .type-container {
     padding: 20px 16px;
@@ -126,7 +169,6 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 
   .type-row h3 {
     font-size: 26px !important;
-    
   }
 
   .type-index {
@@ -136,14 +178,19 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
   .type-title {
     margin-bottom: 10px;
   }
+
+  .type-view-all-btn {
+    padding: 12px 36px;
+    font-size: 0.85rem;
+  }
 }
 
-
-@media(max-width:1024px){
-  .type-title h2s{
+@media (max-width: 1024px) {
+  .type-title h2 {
     font-size: 50px;
   }
-.type-row h3 {
+
+  .type-row h3 {
     font-size: 40px;
   }
 }
