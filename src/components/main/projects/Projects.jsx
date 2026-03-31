@@ -10,21 +10,29 @@ const projects = [
     title: "Split and Settle App",
     desc: "A react based web-app made for solving money spliting issues.",
     tech: "React,Vite,Supabase,CSS, JavaScript",
+    live: "https://your-split-settle-link.vercel.app/",
+    github: "https://github.com/yourusername/split-and-settle",
   },
   {
     title: "URL Shortner",
     desc: "A web-app made to shorten URLs.",
     tech: "HTML,Node+Express,JSON File",
+    live: "https://your-url-shortner-link.com/",
+    github: "https://github.com/yourusername/url-shortner",
   },
   {
     title: "Table Tennis Academy Website",
     desc: "Website for Table tennis Academy.",
     tech: "React,HTML,JS,CSS",
+    live: "https://your-tt-academy-link.com/",
+    github: "https://github.com/yourusername/tt-academy",
   },
   {
     title: "Portfolio Website",
     desc: "I built my portfolio websites",
     tech: "React,HTML,JS,CSS,GSAP",
+    live: "https://karthik-sujith.vercel.app/",
+    github: "https://github.com/yourusername/portfolio",
   },
 ];
 
@@ -85,8 +93,8 @@ export default function Projects() {
                 <span>{p.tech}</span>
 
                 <div className="type-links">
-                  <a href="https://karthik-sujith.vercel.app/">Live</a>
-                  <a href="https://karthik-sujith.vercel.app/">GitHub</a>
+                  <a href={p.live} target="_blank" rel="noopener noreferrer">Live</a>
+                  <a href={p.github} target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
               </div>
             </div>
