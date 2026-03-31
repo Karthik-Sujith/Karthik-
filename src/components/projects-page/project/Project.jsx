@@ -9,7 +9,6 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Utility",
   },
   {
@@ -19,7 +18,6 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Finance",
   },
   {
@@ -29,7 +27,6 @@ const projects = [
     tech: ["React", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Web",
   },
   {
@@ -39,7 +36,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Web",
   },
   {
@@ -49,7 +45,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Security",
   },
   {
@@ -59,7 +54,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Productivity",
   },
   {
@@ -69,7 +63,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Creative",
   },
   {
@@ -79,7 +72,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Utility",
   },
   {
@@ -89,7 +81,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Safety",
   },
   {
@@ -99,7 +90,6 @@ const projects = [
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Utility",
   },
   {
@@ -109,7 +99,6 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
-    year: "2024",
     category: "Utility",
   },
 ];
@@ -164,7 +153,7 @@ export default function Project() {
         >
           <div className="pj-header-top">
             <span className="pj-eyebrow">— Selected Work</span>
-            <span className="pj-header-count">{projects.length} Projects / 2024</span>
+            <span className="pj-header-count">{projects.length} Projects</span>
           </div>
           <div className="pj-title-row">
             <h1 className="pj-main-title">
@@ -259,7 +248,6 @@ export default function Project() {
         {/* FOOTER ROW */}
         <div className="pj-footer">
           <span className="pj-footer-note">More work in progress ↗</span>
-          <span className="pj-footer-year">© 2024</span>
         </div>
       </div>
     </div>
