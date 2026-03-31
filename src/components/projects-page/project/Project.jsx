@@ -1,45 +1,46 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Project.css";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
     id: "01",
     title: "Typing Speed Checker",
-    description: "An app to check and improve your typing speed with real-time WPM tracking.",
+    description: "Real-time WPM tracking app to check and improve your typing speed.",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Utility",
   },
   {
     id: "02",
     title: "Expense Tracker",
-    description: "A responsive expense tracking web application featuring local storage and analytics.",
+    description: "Responsive expense tracking with local storage persistence and analytics.",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Finance",
   },
   {
     id: "03",
-    title: "Table Tennis Academy Website",
-    description: "A fully responsive sports academy website built using React with modern UI design.",
+    title: "Table Tennis Academy",
+    description: "Fully responsive sports academy website with modern UI design.",
     tech: ["React", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Web",
   },
   {
     id: "04",
     title: "Portfolio Website",
-    description: "A personal developer portfolio showcasing projects, skills, and experience.",
+    description: "Personal developer portfolio showcasing projects, skills, and experience.",
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Web",
   },
   {
     id: "05",
@@ -49,42 +50,47 @@ const projects = [
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Security",
   },
   {
     id: "06",
     title: "Notes App",
-    description: "A frontend-based notes app with full CRUD features and clean UI.",
+    description: "Frontend-based notes app with full CRUD features and clean UI.",
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Productivity",
   },
   {
     id: "07",
     title: "Photobooth App",
-    description: "A photobooth app built in React to capture and create fun photo strips.",
+    description: "Capture and create fun photo strips with this React-powered photobooth.",
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Creative",
   },
   {
     id: "08",
     title: "PDF App",
-    description: "A PDF utility app with essential tools for managing and editing your PDFs.",
+    description: "Essential PDF utility tools for managing and editing your documents.",
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Utility",
   },
   {
     id: "09",
     title: "Emergency App",
-    description: "Locate nearby emergency amenities based on your current location.",
+    description: "Locate nearby emergency amenities based on your current GPS location.",
     tech: ["React", "Vite", "CSS"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Safety",
   },
   {
     id: "10",
@@ -94,140 +100,166 @@ const projects = [
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Utility",
   },
   {
     id: "11",
     title: "Calculator",
-    description: "A clean, functional calculator app built with HTML, CSS, and JavaScript.",
+    description: "A clean, functional calculator built with HTML, CSS, and JavaScript.",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://karthik-sujith.vercel.app/",
     github: "https://github.com/",
     year: "2024",
+    category: "Utility",
   },
 ];
 
 export default function Project() {
-  const rowsRef = useRef([]);
-  const headingRef = useRef(null);
-  const glowRef = useRef(null);
-  const pageRef = useRef(null);
+  const [hoveredId, setHoveredId] = useState(null);
+  const [visible, setVisible] = useState({});
+  const rowRefs = useRef([]);
+  const headerRef = useRef(null);
 
   useEffect(() => {
-    // Heading reveal
-    gsap.fromTo(
-      headingRef.current,
-      { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, duration: 1, ease: "power4.out" }
+    // Intersection Observer for scroll reveals
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.dataset.id;
+            setVisible((prev) => ({ ...prev, [id]: true }));
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
 
-    // Staggered row reveals
-    rowsRef.current.forEach((row, i) => {
-      if (!row) return;
-      gsap.fromTo(
-        row,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: row,
-            start: "top 88%",
-            once: true,
-          },
-          delay: (i % 5) * 0.07,
-        }
-      );
+    rowRefs.current.forEach((row) => {
+      if (row) observer.observe(row);
     });
 
-    // Cursor glow follow
-    const handleMouseMove = (e) => {
-      if (!glowRef.current) return;
-      gsap.to(glowRef.current, {
-        x: e.clientX - 200,
-        y: e.clientY - 200,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    };
+    if (headerRef.current) observer.observe(headerRef.current);
 
-    const page = pageRef.current;
-    page.addEventListener("mousemove", handleMouseMove);
-    return () => page.removeEventListener("mousemove", handleMouseMove);
+    return () => observer.disconnect();
   }, []);
 
-  const handleRowEnter = (e) => {
-    const num = e.currentTarget.querySelector(".pp2-num");
-    const title = e.currentTarget.querySelector(".pp2-title");
-    const arrow = e.currentTarget.querySelector(".pp2-arrow");
-    gsap.to(num, { color: "#a020f0", x: 6, duration: 0.3, ease: "power2.out" });
-    gsap.to(title, { x: 10, duration: 0.3, ease: "power2.out" });
-    gsap.to(arrow, { x: 6, opacity: 1, duration: 0.3, ease: "power2.out" });
-  };
-
-  const handleRowLeave = (e) => {
-    const num = e.currentTarget.querySelector(".pp2-num");
-    const title = e.currentTarget.querySelector(".pp2-title");
-    const arrow = e.currentTarget.querySelector(".pp2-arrow");
-    gsap.to(num, { color: "#333", x: 0, duration: 0.3, ease: "power2.out" });
-    gsap.to(title, { x: 0, duration: 0.3, ease: "power2.out" });
-    gsap.to(arrow, { x: 0, opacity: 0.3, duration: 0.3, ease: "power2.out" });
-  };
-
   return (
-    <div className="pp2-root" ref={pageRef}>
-      {/* Cursor glow */}
-      <div className="pp2-glow" ref={glowRef} />
+    <div className="pj-root">
+      {/* Grain texture overlay */}
+      <div className="pj-grain" />
 
-      <div className="pp2-container">
-        {/* Header */}
-        <div className="pp2-header" ref={headingRef}>
-          <p className="pp2-label">SELECTED WORK</p>
-          <h1 className="pp2-heading">PROJECTS</h1>
-          <p className="pp2-count">{projects.length} Projects</p>
+      {/* Decorative vertical lines */}
+      <div className="pj-vlines">
+        <div className="pj-vline" />
+        <div className="pj-vline" />
+        <div className="pj-vline" />
+      </div>
+
+      <div className="pj-container">
+        {/* HEADER BLOCK */}
+        <header
+          className={`pj-header ${visible["header"] ? "pj-reveal" : ""}`}
+          ref={headerRef}
+          data-id="header"
+        >
+          <div className="pj-header-top">
+            <span className="pj-eyebrow">— Selected Work</span>
+            <span className="pj-header-count">{projects.length} Projects / 2024</span>
+          </div>
+          <div className="pj-title-row">
+            <h1 className="pj-main-title">
+              <span className="pj-title-outline">PRO</span>
+              <span className="pj-title-filled">JECTS</span>
+            </h1>
+            <p className="pj-header-sub">
+              A curated collection of interfaces, tools, and experiments built
+              with care and curiosity.
+            </p>
+          </div>
+        </header>
+
+        {/* RULE */}
+        <div className="pj-rule" />
+
+        {/* COLUMN LABELS */}
+        <div className="pj-col-labels">
+          <span>Index</span>
+          <span>Project</span>
+          <span className="pj-col-hide-sm">Category</span>
+          <span className="pj-col-hide-md">Stack</span>
+          <span>Links</span>
         </div>
 
-        {/* Top border */}
-        <div className="pp2-divider" />
+        <div className="pj-rule pj-rule--thin" />
 
-        {/* Project rows */}
-        {projects.map((project, i) => (
-          <div
-            key={project.id}
-            className="pp2-row"
-            ref={(el) => (rowsRef.current[i] = el)}
-            onMouseEnter={handleRowEnter}
-            onMouseLeave={handleRowLeave}
-          >
-            <div className="pp2-row-left">
-              <span className="pp2-num">{project.id}</span>
-              <div className="pp2-info">
-                <h2 className="pp2-title">{project.title}</h2>
-                <p className="pp2-desc">{project.description}</p>
+        {/* PROJECT ROWS */}
+        <ul className="pj-list">
+          {projects.map((project, i) => (
+            <li
+              key={project.id}
+              className={`pj-item ${visible[project.id] ? "pj-reveal" : ""} ${
+                hoveredId === project.id ? "pj-item--active" : ""
+              } ${hoveredId && hoveredId !== project.id ? "pj-item--dimmed" : ""}`}
+              ref={(el) => (rowRefs.current[i] = el)}
+              data-id={project.id}
+              style={{ transitionDelay: `${(i % 6) * 60}ms` }}
+              onMouseEnter={() => setHoveredId(project.id)}
+              onMouseLeave={() => setHoveredId(null)}
+            >
+              {/* Animated left accent bar */}
+              <div className="pj-accent-bar" />
+
+              <span className="pj-id">{project.id}</span>
+
+              <div className="pj-info">
+                <h2 className="pj-name">{project.title}</h2>
+                <p className="pj-desc">{project.description}</p>
               </div>
-            </div>
 
-            <div className="pp2-row-right">
-              <div className="pp2-tech">
+              <span className="pj-category pj-col-hide-sm">{project.category}</span>
+
+              <div className="pj-tech pj-col-hide-md">
                 {project.tech.map((t, idx) => (
-                  <span key={idx} className="pp2-badge">{t}</span>
+                  <span key={idx} className="pj-tag">{t}</span>
                 ))}
               </div>
-              <span className="pp2-year">{project.year}</span>
-              <div className="pp2-actions">
-                <a href={project.link} className="pp2-link">Live ↗</a>
-                <a href={project.github} className="pp2-link">GitHub ↗</a>
+
+              <div className="pj-links">
+                <a
+                  href={project.link}
+                  className="pj-btn"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span>Live</span>
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+                <a
+                  href={project.github}
+                  className="pj-btn pj-btn--ghost"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span>Code</span>
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
               </div>
-              <span className="pp2-arrow">→</span>
-            </div>
-          </div>
-        ))}
+            </li>
+          ))}
+        </ul>
 
-        <div className="pp2-divider" />
+        <div className="pj-rule" />
 
-        <div className="pp2-footer">
-          <p>All projects built with passion & precision.</p>
+        {/* FOOTER ROW */}
+        <div className="pj-footer">
+          <span className="pj-footer-note">More work in progress ↗</span>
+          <span className="pj-footer-year">© 2024</span>
         </div>
       </div>
     </div>
