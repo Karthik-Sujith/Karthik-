@@ -161,8 +161,7 @@ export default function Project() {
               <span className="pj-title-filled">JECTS</span>
             </h1>
             <p className="pj-header-sub">
-              A curated collection of interfaces, tools, and experiments built
-              with care and curiosity.
+              Project Live links and Github links will be updated soon
             </p>
           </div>
         </header>
