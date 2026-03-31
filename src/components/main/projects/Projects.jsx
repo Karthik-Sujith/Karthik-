@@ -7,24 +7,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Smart Poultry Farming",
-    desc: "IoT-based automation system with real-time monitoring.",
-    tech: "IoT  NodeMCU",
+    title: "Split and Settle App",
+    desc: "A react based web-app made for solving money spliting issues.",
+    tech: "React,Vite,Supabase,CSS, JavaScript",
   },
   {
-    title: "Expense Tracker",
-    desc: "You can track you expenses.",
-    tech: "React HTML JS CSS",
+    title: "URL Shortner",
+    desc: "A web-app made to shorten URLs.",
+    tech: "HTML,Node+Express,JSON File",
   },
   {
     title: "Table Tennis Academy Website",
     desc: "Website for Table tennis Academy.",
-    tech: "React HTML JS CSS",
+    tech: "React,HTML,JS,CSS",
   },
   {
     title: "Portfolio Website",
     desc: "I built my portfolio websites",
-    tech: "React HTML JS CSS",
+    tech: "React,HTML,JS,CSS,GSAP",
   },
 ];
 
