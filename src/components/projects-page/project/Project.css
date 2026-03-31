@@ -6,14 +6,14 @@
   --bg: #0c0c0b;
   --surface: #111110;
   --border: rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(214, 160, 80, 0.5);
-  --text-primary: #f0ebe0;
-  --text-secondary: #6b6660;
-  --text-dim: #393530;
-  --gold: #d6a050;
-  --gold-soft: rgba(214, 160, 80, 0.15);
-  --gold-glow: rgba(214, 160, 80, 0.08);
-  --white: #f0ebe0;
+  --border-hover: rgba(160, 32, 240, 0.5);
+  --text-primary: #f0eaff;
+  --text-secondary: #6b6075;
+  --text-dim: #3a3040;
+  --gold: #a020f0;
+  --gold-soft: rgba(160, 32, 240, 0.15);
+  --gold-glow: rgba(160, 32, 240, 0.08);
+  --white: #f0eaff;
   --mono: 'DM Mono', monospace;
   --sans: 'DM Sans', sans-serif;
   --serif: 'Playfair Display', serif;
@@ -242,7 +242,7 @@
   top: 0;
   width: 2px;
   height: 0%;
-  background: linear-gradient(to bottom, var(--gold), transparent);
+  background: linear-gradient(to bottom, #a020f0, transparent);
   transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
 }
@@ -367,7 +367,7 @@
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   white-space: nowrap;
   background: var(--gold);
-  color: #0c0c0b;
+  color: #fff;
   border: 1px solid transparent;
   font-weight: 500;
 }
@@ -379,7 +379,7 @@
 }
 
 .pj-btn:hover {
-  background: #e8b565;
+  background: #b535ff;
 }
 
 .pj-btn--ghost {
