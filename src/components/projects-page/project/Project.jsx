@@ -70,8 +70,8 @@ const projects = [
     title: "PDF App",
     description: "Essential PDF utility tools for managing and editing your documents.",
     tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
+    link: "https://pdf-editor-website-seven.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/pdf-editor-website",
     category: "Utility",
   },
   {
