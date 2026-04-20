@@ -61,17 +61,11 @@ const Skills = () => {
       /* THIS IS FOR THE BLOCK ANIMATIONS */
     
       blocksRef.current.forEach((block) => {
-      
-
-        
         if (!block) return;
 
         const index = block.querySelector(".focus-index");
-        
-        const title =block.querySelector("h3");
-      
+        const title = block.querySelector("h3");
         const text = block.querySelector("p");
-        
         const skill = block.querySelector(".focus-skill");
 
         const tl = gsap.timeline({
@@ -86,7 +80,6 @@ const Skills = () => {
           y: 40,
           opacity:0,
           duration:0.6,
-        
           ease: "power3.out",
         })
           .from(
@@ -96,7 +89,6 @@ const Skills = () => {
               opacity: 0,
               duration: 0.4,
               ease: "back-out(1.7)",
-            
             },
             "-=0.3"
           )
@@ -133,37 +125,30 @@ const Skills = () => {
       });
     }, sectionRef);
 
-
-    
     return () => ctx.revert();
   }, []);
 
   return (
     <section className="focus-skills" id="skills" ref={sectionRef}>
-      <div className="focus-header">
-        <h2>SKILLSET</h2>
-      </div>
+      <div className="focus-skills-inner">
+        <div className="focus-header">
+          <h2>SKILLSET</h2>
+        </div>
 
-      <div className="focus-layout">
-        
-        {focusAreas.map((area, index) => (
-          <div
-            className="focus-block"
-            
-            key={index}
-            
-            ref={(el) => (blocksRef.current[index] = el)}
-            
-          >
-      
-            <span className="focus-index">0{index + 1}</span>
-            
-            <h3>{area.title}</h3>
-            <p>{area.insight}</p>
-    
-            <div className="focus-skill">{area.skill}</div>
-          </div>
-        ))}
+        <div className="focus-layout">
+          {focusAreas.map((area, index) => (
+            <div
+              className="focus-block"
+              key={index}
+              ref={(el) => (blocksRef.current[index] = el)}
+            >
+              <span className="focus-index">0{index + 1}</span>
+              <h3>{area.title}</h3>
+              <p>{area.insight}</p>
+              <div className="focus-skill">{area.skill}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
