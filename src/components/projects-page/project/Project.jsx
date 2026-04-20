@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Project.css";
 
 const projectsRaw = [
@@ -7,7 +8,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "Find nearby amenities instantly — hospitals, ATMs, parks, and more — with real-time map integration and smart filters.",
-    tags: ["React", "Maps API", "Geolocation"],
+    tags: ["React", "Leaflet", "Geolocation", "Overpass API"],
     link: "https://amenities-locator.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Amenities-locator",
   },
@@ -16,7 +17,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "A fun in-browser photobooth with filters, frames, and instant download. No install needed — just open and snap.",
-    tags: ["JavaScript", "Canvas API", "CSS"],
+    tags: ["React", "Webcam API", "html2canvas"],
     link: "https://photobooth-iota-six.vercel.app/",
     github: "https://github.com/Karthik-Sujith/photobooth",
   },
@@ -25,7 +26,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "Track daily spending with category breakdowns, budget limits, and visual charts to keep your finances in check.",
-    tags: ["React", "Chart.js", "LocalStorage"],
+    tags: ["React", "Lucide React", "LocalStorage"],
     link: "https://expense-tracker-six-ashy-82.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Expense-Tracker",
   },
@@ -34,7 +35,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "Generate a polished resume in minutes. Pick a template, fill in your details, and export a print-ready PDF.",
-    tags: ["React", "PDF.js", "CSS"],
+    tags: ["React", "@react-pdf/renderer", "Lucide React"],
     link: "https://resume-builder-rose-xi.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Resume-builder",
   },
@@ -43,7 +44,7 @@ const projectsRaw = [
     category: "Productivity",
     description:
       "Build streaks and stay consistent. Log daily habits, visualise progress, and get gentle reminders to keep going.",
-    tags: ["React", "Node.js", "MongoDB"],
+    tags: ["React", "React Router", "LocalStorage"],
     link: "https://habit-tracker-kohl-phi.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Habit-Tracker",
   },
@@ -52,7 +53,7 @@ const projectsRaw = [
     category: "Website",
     description:
       "A pixel-perfect Pinterest clone with masonry layout, infinite scroll, and responsive board management.",
-    tags: ["React", "CSS Grid", "REST API"],
+    tags: ["React", "DnD Kit", "html2canvas"],
     link: "https://pinterest-frontend-five.vercel.app/",
     github: "https://github.com/Karthik-Sujith/pinterest-frontend",
   },
@@ -61,7 +62,7 @@ const projectsRaw = [
     category: "Productivity",
     description:
       "A minimal notes app with rich text editing, colour labels, and instant search to keep your thoughts organised.",
-    tags: ["React", "Quill.js", "LocalStorage"],
+    tags: ["React", "Lucide React", "LocalStorage"],
     link: "https://notes-app-xi-rosy.vercel.app/",
     github: "https://github.com/Karthik-Sujith/notes-app",
   },
@@ -70,7 +71,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "Generate, save, and export beautiful colour palettes. Includes contrast checker and one-click copy for hex values.",
-    tags: ["JavaScript", "CSS", "Canvas"],
+    tags: ["React", "GSAP", "colorthief", "Lenis"],
     link: "https://color-palette-app-orpin.vercel.app/",
     github: "https://github.com/Karthik-Sujith/color-palette-app",
   },
@@ -79,17 +80,16 @@ const projectsRaw = [
     category: "Web App",
     description:
       "A smart expense splitting app that helps groups track shared expenses and settle debts with real-time calculations.",
-    tags: ["React", "Node.js", "MongoDB"],
+    tags: ["React", "Vite", "Supabase", "JavaScript"],
     link: "https://split-and-settle.vercel.app/",
     github: "https://github.com/Karthik-Sujith/split-and-settle",
   },
-  
   {
     title: "Text Cleaner",
     category: "Tool",
     description:
       "Paste messy text and clean it instantly — remove extra spaces, fix case, strip HTML, and format for any use.",
-    tags: ["JavaScript", "Regex", "HTML"],
+    tags: ["React", "React Router", "CSS"],
     link: "https://text-cleaner-sooty.vercel.app/",
     github: "https://github.com/Karthik-Sujith/text-cleaner",
   },
@@ -98,7 +98,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "Improve your typing speed and accuracy with timed tests, WPM tracking, and difficulty levels from beginner to advanced.",
-    tags: ["React", "JavaScript", "CSS"],
+    tags: ["React", "Chart.js", "react-chartjs-2"],
     link: "https://typing-app-coral.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Typing-app",
   },
@@ -107,7 +107,7 @@ const projectsRaw = [
     category: "Productivity",
     description:
       "Never forget a renewal. Log all your subscriptions, get cost breakdowns, and receive alerts before billing dates.",
-    tags: ["React", "Node.js", "PostgreSQL"],
+    tags: ["React", "React Router", "LocalStorage"],
     link: "https://subscription-tracker-kappa-orcin.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Subscription-tracker",
   },
@@ -116,7 +116,7 @@ const projectsRaw = [
     category: "Tool",
     description:
       "A world clock app with multiple time zones, stopwatch, countdown timer, and an alarm — all in one clean interface.",
-    tags: ["JavaScript", "HTML", "CSS"],
+    tags: ["React", "Lucide React", "CSS"],
     link: "https://clock-app-five-silk.vercel.app/",
     github: "https://github.com/Karthik-Sujith/clock-app",
   },
@@ -125,7 +125,7 @@ const projectsRaw = [
     category: "Web App",
     description:
       "Edit, annotate, merge, and compress PDFs right in the browser. No sign-up, no uploads to servers — fully private.",
-    tags: ["React", "PDF-lib", "Canvas"],
+    tags: ["React", "pdf-lib", "pdfjs-dist", "file-saver"],
     link: "https://pdf-editor-website-seven.vercel.app/",
     github: "https://github.com/Karthik-Sujith/pdf-editor-website",
   },
@@ -134,7 +134,7 @@ const projectsRaw = [
     category: "Tool",
     description:
       "Generate strong, secure passwords with custom length and character rules. Copy instantly or save to a local vault.",
-    tags: ["JavaScript", "Crypto API", "HTML"],
+    tags: ["React", "Lucide React", "Crypto API"],
     link: "https://expense-tracker-six-ashy-82.vercel.app/",
     github: "https://github.com/Karthik-Sujith/password-generator",
   },
@@ -143,7 +143,7 @@ const projectsRaw = [
     category: "Website",
     description:
       "A responsive website for a local Table Tennis Academy with schedules, player registration, and event announcements.",
-    tags: ["HTML", "CSS", "JavaScript"],
+    tags: ["HTML", "CSS", "JavaScript", "React"],
     link: "https://highfivesportskannur.com/table-tennis",
     github: "https://github.com/abhirami100/High-five-Sports",
   },
@@ -152,13 +152,12 @@ const projectsRaw = [
     category: "Web App",
     description:
       "A fast URL shortening service with custom alias support, click analytics, and QR code generation for every link.",
-    tags: ["React", "Express", "PostgreSQL"],
+    tags: ["HTML", "Node.js", "Express", "JSON File"],
     link: "https://url-shortner-wr98.onrender.com/",
     github: "https://github.com/Karthik-Sujith/url-shortner",
   },
 ];
 
-// Fisher-Yates shuffle — seeded random so order is consistent per session
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -176,6 +175,7 @@ const projects = shuffle(projectsRaw).map((p, i) => ({
 export default function Project() {
   const headerRef = useRef(null);
   const cardsRef = useRef([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadScript = (src) =>
@@ -207,7 +207,6 @@ export default function Project() {
 
       const validCards = cardsRef.current.filter(Boolean);
 
-      // First 6 animate on load
       gsap.fromTo(
         validCards.slice(0, 6),
         { opacity: 0, y: 36, scale: 0.97 },
@@ -220,7 +219,6 @@ export default function Project() {
         }
       );
 
-      // Rest animate on scroll
       validCards.slice(6).forEach((el) => {
         gsap.fromTo(
           el,
@@ -262,8 +260,10 @@ export default function Project() {
             </h1>
           </div>
           <div className="header-right">
-            
-            
+            <button className="back-btn" onClick={() => navigate("/")}>
+              <span className="back-btn-arrow">←</span>
+              <span>Back</span>
+            </button>
           </div>
         </div>
         <div className="page-header-rule" />
@@ -303,7 +303,6 @@ export default function Project() {
                   Live ↗
                 </a>
               </div>
-              <div className="card-arrow">↗</div>
             </div>
           </article>
         ))}
