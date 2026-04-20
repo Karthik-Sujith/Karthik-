@@ -1,253 +1,312 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import "./Project.css";
 
-const projects = [
+const projectsRaw = [
   {
-    id: "01",
-    title: "Typing Speed Checker",
-    description: "Real-time WPM tracking app to check and improve your typing speed.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Utility",
+    title: "Amenities Locator",
+    category: "Web App",
+    description:
+      "Find nearby amenities instantly — hospitals, ATMs, parks, and more — with real-time map integration and smart filters.",
+    tags: ["React", "Maps API", "Geolocation"],
+    link: "https://amenities-locator.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Amenities-locator",
   },
   {
-    id: "02",
-    title: "Expense Tracker",
-    description: "Responsive expense tracking with local storage persistence and analytics.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Finance",
-  },
-  {
-    id: "03",
-    title: "Table Tennis Academy",
-    description: "Fully responsive sports academy website with modern UI design.",
-    tech: ["React", "CSS", "JavaScript"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Web",
-  },
-  {
-    id: "04",
-    title: "Portfolio Website",
-    description: "Personal developer portfolio showcasing projects, skills, and experience.",
-    tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Web",
-  },
-  {
-    id: "05",
-    title: "Password Generator",
-    description: "Generate secure passwords and check existing password strength instantly.",
-    tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Security",
-  },
-  {
-    id: "06",
-    title: "Notes App",
-    description: "Frontend-based notes app with full CRUD features and clean UI.",
-    tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Productivity",
-  },
-  {
-    id: "07",
     title: "Photobooth App",
-    description: "Capture and create fun photo strips with this React-powered photobooth.",
-    tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Creative",
+    category: "Web App",
+    description:
+      "A fun in-browser photobooth with filters, frames, and instant download. No install needed — just open and snap.",
+    tags: ["JavaScript", "Canvas API", "CSS"],
+    link: "https://photobooth-iota-six.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/photobooth",
   },
   {
-    id: "08",
-    title: "PDF App",
-    description: "Essential PDF utility tools for managing and editing your documents.",
-    tech: ["React", "Vite", "CSS"],
+    title: "Expense Tracker",
+    category: "Web App",
+    description:
+      "Track daily spending with category breakdowns, budget limits, and visual charts to keep your finances in check.",
+    tags: ["React", "Chart.js", "LocalStorage"],
+    link: "https://expense-tracker-six-ashy-82.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Expense-Tracker",
+  },
+  {
+    title: "Resume Builder",
+    category: "Web App",
+    description:
+      "Generate a polished resume in minutes. Pick a template, fill in your details, and export a print-ready PDF.",
+    tags: ["React", "PDF.js", "CSS"],
+    link: "https://resume-builder-rose-xi.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Resume-builder",
+  },
+  {
+    title: "Habit Tracker",
+    category: "Productivity",
+    description:
+      "Build streaks and stay consistent. Log daily habits, visualise progress, and get gentle reminders to keep going.",
+    tags: ["React", "Node.js", "MongoDB"],
+    link: "https://habit-tracker-kohl-phi.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Habit-Tracker",
+  },
+  {
+    title: "Pinterest Frontend",
+    category: "Website",
+    description:
+      "A pixel-perfect Pinterest clone with masonry layout, infinite scroll, and responsive board management.",
+    tags: ["React", "CSS Grid", "REST API"],
+    link: "https://pinterest-frontend-five.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/pinterest-frontend",
+  },
+  {
+    title: "Notes App",
+    category: "Productivity",
+    description:
+      "A minimal notes app with rich text editing, colour labels, and instant search to keep your thoughts organised.",
+    tags: ["React", "Quill.js", "LocalStorage"],
+    link: "https://notes-app-xi-rosy.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/notes-app",
+  },
+  {
+    title: "Color Palette Website",
+    category: "Web App",
+    description:
+      "Generate, save, and export beautiful colour palettes. Includes contrast checker and one-click copy for hex values.",
+    tags: ["JavaScript", "CSS", "Canvas"],
+    link: "https://color-palette-app-orpin.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/color-palette-app",
+  },
+  {
+    title: "Split and Settle App",
+    category: "Web App",
+    description:
+      "A smart expense splitting app that helps groups track shared expenses and settle debts with real-time calculations.",
+    tags: ["React", "Node.js", "MongoDB"],
+    link: "https://split-and-settle.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/split-and-settle",
+  },
+  
+  {
+    title: "Text Cleaner",
+    category: "Tool",
+    description:
+      "Paste messy text and clean it instantly — remove extra spaces, fix case, strip HTML, and format for any use.",
+    tags: ["JavaScript", "Regex", "HTML"],
+    link: "https://text-cleaner-sooty.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/text-cleaner",
+  },
+  {
+    title: "Typing App",
+    category: "Web App",
+    description:
+      "Improve your typing speed and accuracy with timed tests, WPM tracking, and difficulty levels from beginner to advanced.",
+    tags: ["React", "JavaScript", "CSS"],
+    link: "https://typing-app-coral.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Typing-app",
+  },
+  {
+    title: "Subscription Tracker",
+    category: "Productivity",
+    description:
+      "Never forget a renewal. Log all your subscriptions, get cost breakdowns, and receive alerts before billing dates.",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    link: "https://subscription-tracker-kappa-orcin.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Subscription-tracker",
+  },
+  {
+    title: "Clock App",
+    category: "Tool",
+    description:
+      "A world clock app with multiple time zones, stopwatch, countdown timer, and an alarm — all in one clean interface.",
+    tags: ["JavaScript", "HTML", "CSS"],
+    link: "https://clock-app-five-silk.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/clock-app",
+  },
+  {
+    title: "PDF Editor Website",
+    category: "Web App",
+    description:
+      "Edit, annotate, merge, and compress PDFs right in the browser. No sign-up, no uploads to servers — fully private.",
+    tags: ["React", "PDF-lib", "Canvas"],
     link: "https://pdf-editor-website-seven.vercel.app/",
     github: "https://github.com/Karthik-Sujith/pdf-editor-website",
-    category: "Utility",
   },
   {
-    id: "09",
-    title: "Emergency App",
-    description: "Locate nearby emergency amenities based on your current GPS location.",
-    tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Safety",
+    title: "Password Generator",
+    category: "Tool",
+    description:
+      "Generate strong, secure passwords with custom length and character rules. Copy instantly or save to a local vault.",
+    tags: ["JavaScript", "Crypto API", "HTML"],
+    link: "https://expense-tracker-six-ashy-82.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/password-generator",
   },
   {
-    id: "10",
-    title: "QR-Code Generator",
-    description: "Convert any text or URL into a scannable QR code instantly.",
-    tech: ["React", "Vite", "CSS"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Utility",
+    title: "Table Tennis Academy",
+    category: "Website",
+    description:
+      "A responsive website for a local Table Tennis Academy with schedules, player registration, and event announcements.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://highfivesportskannur.com/table-tennis",
+    github: "https://github.com/abhirami100/High-five-Sports",
   },
   {
-    id: "11",
-    title: "Calculator",
-    description: "A clean, functional calculator built with HTML, CSS, and JavaScript.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/",
-    category: "Utility",
+    title: "URL Shortner",
+    category: "Web App",
+    description:
+      "A fast URL shortening service with custom alias support, click analytics, and QR code generation for every link.",
+    tags: ["React", "Express", "PostgreSQL"],
+    link: "https://url-shortner-wr98.onrender.com/",
+    github: "https://github.com/Karthik-Sujith/url-shortner",
   },
 ];
 
+// Fisher-Yates shuffle — seeded random so order is consistent per session
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const projects = shuffle(projectsRaw).map((p, i) => ({
+  ...p,
+  number: String(i + 1).padStart(2, "0"),
+}));
+
 export default function Project() {
-  const [hoveredId, setHoveredId] = useState(null);
-  const [visible, setVisible] = useState({});
-  const rowRefs = useRef([]);
   const headerRef = useRef(null);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
-    // Intersection Observer for scroll reveals
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.dataset.id;
-            setVisible((prev) => ({ ...prev, [id]: true }));
+    const loadScript = (src) =>
+      new Promise((resolve, reject) => {
+        if (document.querySelector(`script[src="${src}"]`)) return resolve();
+        const s = document.createElement("script");
+        s.src = src;
+        s.onload = resolve;
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+
+    const init = async () => {
+      await loadScript(
+        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      );
+      await loadScript(
+        "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      );
+
+      const { gsap, ScrollTrigger } = window;
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.fromTo(
+        headerRef.current,
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+      );
+
+      const validCards = cardsRef.current.filter(Boolean);
+
+      // First 6 animate on load
+      gsap.fromTo(
+        validCards.slice(0, 6),
+        { opacity: 0, y: 36, scale: 0.97 },
+        {
+          opacity: 1, y: 0, scale: 1,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: { amount: 0.45, grid: [2, 3], from: "start" },
+          delay: 0.15,
+        }
+      );
+
+      // Rest animate on scroll
+      validCards.slice(6).forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 32, scale: 0.97 },
+          {
+            opacity: 1, y: 0, scale: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
           }
-        });
-      },
-      { threshold: 0.1 }
-    );
+        );
+      });
+    };
 
-    rowRefs.current.forEach((row) => {
-      if (row) observer.observe(row);
-    });
+    init();
 
-    if (headerRef.current) observer.observe(headerRef.current);
-
-    return () => observer.disconnect();
+    return () => {
+      if (window.ScrollTrigger)
+        window.ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
   }, []);
 
   return (
-    <div className="pj-root">
-      {/* Grain texture overlay */}
-      <div className="pj-grain" />
-
-      {/* Decorative vertical lines */}
-      <div className="pj-vlines">
-        <div className="pj-vline" />
-        <div className="pj-vline" />
-        <div className="pj-vline" />
-      </div>
-
-      <div className="pj-container">
-        {/* HEADER BLOCK */}
-        <header
-          className={`pj-header ${visible["header"] ? "pj-reveal" : ""}`}
-          ref={headerRef}
-          data-id="header"
-        >
-          <div className="pj-header-top">
-            <span className="pj-eyebrow">— Selected Work</span>
-            <span className="pj-header-count">{projects.length} Projects</span>
-          </div>
-          <div className="pj-title-row">
-            <h1 className="pj-main-title">
-              <span className="pj-title-outline">PRO</span>
-              <span className="pj-title-filled">JECTS</span>
+    <div className="page">
+      {/* ── Header ── */}
+      <header className="page-header" ref={headerRef}>
+        <div className="page-header-top">
+          <div>
+            <div className="header-eyebrow">
+              <span className="eyebrow-pip" />
+              <span className="eyebrow-text">My Work</span>
+            </div>
+            <h1 className="page-title">
+              Projects<span className="page-title-ghost"></span>
             </h1>
-            <p className="pj-header-sub">
-              Project Live links and Github links will be updated soon
-            </p>
           </div>
-        </header>
-
-        {/* RULE */}
-        <div className="pj-rule" />
-
-        {/* COLUMN LABELS */}
-        <div className="pj-col-labels">
-          <span>Index</span>
-          <span>Project</span>
-          <span className="pj-col-hide-sm">Category</span>
-          <span className="pj-col-hide-md">Stack</span>
-          <span>Links</span>
+          <div className="header-right">
+            
+            
+          </div>
         </div>
+        <div className="page-header-rule" />
+      </header>
 
-        <div className="pj-rule pj-rule--thin" />
+      {/* ── Cards ── */}
+      <div className="cards-grid">
+        {projects.map((p, i) => (
+          <article
+            key={p.title}
+            className="proj-card"
+            ref={(el) => (cardsRef.current[i] = el)}
+          >
+            <div className="card-bar" />
+            <span className="card-ghost-num">{p.number}</span>
 
-        {/* PROJECT ROWS */}
-        <ul className="pj-list">
-          {projects.map((project, i) => (
-            <li
-              key={project.id}
-              className={`pj-item ${visible[project.id] ? "pj-reveal" : ""} ${
-                hoveredId === project.id ? "pj-item--active" : ""
-              } ${hoveredId && hoveredId !== project.id ? "pj-item--dimmed" : ""}`}
-              ref={(el) => (rowRefs.current[i] = el)}
-              data-id={project.id}
-              style={{ transitionDelay: `${(i % 6) * 60}ms` }}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              {/* Animated left accent bar */}
-              <div className="pj-accent-bar" />
-
-              <span className="pj-id">{project.id}</span>
-
-              <div className="pj-info">
-                <h2 className="pj-name">{project.title}</h2>
-                <p className="pj-desc">{project.description}</p>
+            <div className="card-inner">
+              <div className="card-header">
+                <span className="card-num">{p.number}</span>
+                <span className="card-cat">{p.category}</span>
               </div>
-
-              <span className="pj-category pj-col-hide-sm">{project.category}</span>
-
-              <div className="pj-tech pj-col-hide-md">
-                {project.tech.map((t, idx) => (
-                  <span key={idx} className="pj-tag">{t}</span>
+              <h2 className="card-title">{p.title}</h2>
+              <p className="card-desc">{p.description}</p>
+              <div className="card-tags">
+                {p.tags.map((t) => (
+                  <span key={t} className="tag">{t}</span>
                 ))}
               </div>
+            </div>
 
-              <div className="pj-links">
-                <a
-                  href={project.link}
-                  className="pj-btn"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span>Live</span>
-                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+            <div className="card-footer">
+              <div className="card-links">
+                <a href={p.github} target="_blank" rel="noreferrer" className="clink">
+                  GitHub
                 </a>
-                <a
-                  href={project.github}
-                  className="pj-btn pj-btn--ghost"
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span>Code</span>
-                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <a href={p.link} target="_blank" rel="noreferrer" className="clink clink--live">
+                  Live ↗
                 </a>
               </div>
-            </li>
-          ))}
-        </ul>
-
-        <div className="pj-rule" />
-
-        {/* FOOTER ROW */}
-        <div className="pj-footer">
-          <span className="pj-footer-note">More work in progress ↗</span>
-        </div>
+              <div className="card-arrow">↗</div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
   );
