@@ -250,12 +250,12 @@ body {
 
 .card-desc {
   font-size: 0.75rem;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.75;
   flex: 1;
   transition: color 0.2s ease;
 }
-.proj-card:hover .card-desc { color: var(--muted-2); }
+.proj-card:hover .card-desc { color: var(--white); }
 
 .card-tags {
   display: flex;
@@ -268,7 +268,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--muted);
+  color: var(--white);
   border: 1px solid var(--border);
   border-radius: 2px;
   padding: 2px 6px;
@@ -276,7 +276,7 @@ body {
 }
 .proj-card:hover .tag {
   border-color: rgba(160,32,240,0.2);
-  color: var(--muted-2);
+  color: var(--white);
 }
 
 /* ── footer ── */
@@ -298,7 +298,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--white);
   text-decoration: none;
   transition: color 0.18s ease;
 }
