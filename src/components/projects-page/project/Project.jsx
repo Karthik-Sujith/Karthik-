@@ -142,7 +142,7 @@ const projectsRaw = [
     title: "Table Tennis Academy",
     category: "Website",
     description:
-      "A responsive website for a local Table Tennis Academy with schedules, player registration, and event announcements.",
+      "A responsive website for a local Table Tennis Academy.",
     tags: ["HTML", "CSS", "JavaScript", "React"],
     link: "https://highfivesportskannur.com/table-tennis",
     github: "https://github.com/abhirami100/High-five-Sports",
