@@ -31,7 +31,7 @@ const projects = [
     title: "Resume Builder",
     desc:"Generate a polished resume in minutes.Fill in your details, and export a print-ready PDF.",
     tech: "React,react-pdf/renderer,Lucide React",
-    link: "https://resume-builder-rose-xi.vercel.app/",
+    live: "https://resume-builder-rose-xi.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Resume-builder",
   },
 ];
