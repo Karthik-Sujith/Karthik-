@@ -27,12 +27,12 @@ const projects = [
     live: "https://highfivesportskannur.com/table-tennis",
     github: "https://github.com/abhirami100/High-five-Sports",
   },
-  {
-    title: "Portfolio Website",
-    desc: "I built my portfolio websites",
-    tech: "React,HTML,JS,CSS,GSAP",
-    live: "https://karthik-sujith.vercel.app/",
-    github: "https://github.com/Karthik-Sujith/Karthik-",
+   {
+    title: "Resume Builder",
+    desc:"Generate a polished resume in minutes.Fill in your details, and export a print-ready PDF.",
+    tech: "React,react-pdf/renderer,Lucide React",
+    link: "https://resume-builder-rose-xi.vercel.app/",
+    github: "https://github.com/Karthik-Sujith/Resume-builder",
   },
 ];
 
