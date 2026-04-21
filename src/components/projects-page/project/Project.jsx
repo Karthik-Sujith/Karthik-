@@ -156,6 +156,15 @@ const projectsRaw = [
     link: "https://url-shortner-wr98.onrender.com/",
     github: "https://github.com/Karthik-Sujith/url-shortner",
   },
+   {
+    title: "Github Profile Finder",
+    category: "Tool",
+    description:
+      "A tool to find github accounts by searching with their profile names.",
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Lucide React", "GitHub REST API"],
+    link: "https://github-profile-finder-nine-coral.vercel.app",
+    github: "https://github.com/Karthik-Sujith/Github-Profile-Finder",
+  },
 ];
 
 function shuffle(arr) {
