@@ -70,7 +70,13 @@ export default function Banner() {
         {/* BUTTONS */}
         <div className="banner-actions" ref={actionsRef}>
           <a href="#projects" className="btn primary">View Work</a>
-          <a href="#contact" className="btn secondary">My Resume</a>
+          <a 
+  href="/Karthik-Sujith-Resume.pdf" 
+  download="Karthik-Sujith-Resume.pdf" 
+  className="btn secondary"
+>
+  My Resume
+</a>
         </div>
 
       </div>
