@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: "Split and Settle App",
-    desc: "A react based web-app made for solving money spliting issues.",
+    desc: "A react based web-app made for solving money splitting issues.",
     tech: "React,Vite,Supabase,CSS, JavaScript",
     live: "https://split-and-settle.vercel.app/",
     github: "https://github.com/Karthik-Sujith/split-and-settle",
