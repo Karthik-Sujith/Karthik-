@@ -7,7 +7,7 @@ const projectsRaw = [
     title: "Amenities Locator",
     category: "Web App",
     description:
-      "Find nearby amenities instantly — hospitals, ATMs, parks, and more — with real-time map integration and smart filters.",
+      "Find nearby amenities instantly — hospitals,Police Stations,Fire stations nearest to your location real-time map integration.",
     tags: ["React", "Leaflet", "Geolocation", "Overpass API"],
     link: "https://amenities-locator.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Amenities-locator",
@@ -25,7 +25,7 @@ const projectsRaw = [
     title: "Expense Tracker",
     category: "Web App",
     description:
-      "Track daily spending with category breakdowns, budget limits, and visual charts to keep your finances in check.",
+      "Track daily spending with category breakdowns, budget limits to keep your finances in check.",
     tags: ["React", "Lucide React", "LocalStorage"],
     link: "https://expense-tracker-six-ashy-82.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Expense-Tracker",
@@ -34,7 +34,7 @@ const projectsRaw = [
     title: "Resume Builder",
     category: "Web App",
     description:
-      "Generate a polished resume in minutes. Pick a template, fill in your details, and export a print-ready PDF.",
+      "Generate a polished resume in minutes.Fill in your details, and export a print-ready PDF.",
     tags: ["React", "@react-pdf/renderer", "Lucide React"],
     link: "https://resume-builder-rose-xi.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Resume-builder",
@@ -43,7 +43,7 @@ const projectsRaw = [
     title: "Habit Tracker",
     category: "Productivity",
     description:
-      "Build streaks and stay consistent. Log daily habits, visualise progress, and get gentle reminders to keep going.",
+      "Build streaks and stay consistent. Log daily habits, visualise progress to keep going.",
     tags: ["React", "React Router", "LocalStorage"],
     link: "https://habit-tracker-kohl-phi.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Habit-Tracker",
@@ -61,7 +61,7 @@ const projectsRaw = [
     title: "Notes App",
     category: "Productivity",
     description:
-      "A minimal notes app with rich text editing, colour labels, and instant search to keep your thoughts organised.",
+      "A minimal notes app with text editing to keep your thoughts organised.",
     tags: ["React", "Lucide React", "LocalStorage"],
     link: "https://notes-app-xi-rosy.vercel.app/",
     github: "https://github.com/Karthik-Sujith/notes-app",
@@ -106,7 +106,7 @@ const projectsRaw = [
     title: "Subscription Tracker",
     category: "Productivity",
     description:
-      "Never forget a renewal. Log all your subscriptions, get cost breakdowns, and receive alerts before billing dates.",
+      "Never forget a renewal. Log all your subscriptions and get cost breakdowns.",
     tags: ["React", "React Router", "LocalStorage"],
     link: "https://subscription-tracker-kappa-orcin.vercel.app/",
     github: "https://github.com/Karthik-Sujith/Subscription-tracker",
@@ -115,7 +115,7 @@ const projectsRaw = [
     title: "Clock App",
     category: "Tool",
     description:
-      "A world clock app with multiple time zones, stopwatch, countdown timer, and an alarm — all in one clean interface.",
+      "A clock app with stopwatch, countdown timer, and an alarm — all in one clean interface.",
     tags: ["React", "Lucide React", "CSS"],
     link: "https://clock-app-five-silk.vercel.app/",
     github: "https://github.com/Karthik-Sujith/clock-app",
@@ -134,7 +134,7 @@ const projectsRaw = [
     category: "Tool",
     description:
       "Generate strong, secure passwords with custom length and character rules. Copy instantly or save to a local vault.",
-    tags: ["React", "Lucide React", "Crypto API"],
+    tags: ["React"],
     link: "https://expense-tracker-six-ashy-82.vercel.app/",
     github: "https://github.com/Karthik-Sujith/password-generator",
   },
